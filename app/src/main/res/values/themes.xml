@@ -22,6 +22,17 @@
         <item name="android:yearListItemTextAppearance">@style/CustomDatePickerTextAppearance</item>
         <item name="android:yearListSelectorColor">@color/GreenYellow</item>
     </style>
+
+    <style name="MyTimePickerStyle" parent="@android:style/Widget.Material.TimePicker">
+        <item name="android:datePickerMode">calendar</item>
+        <item name="android:background">@drawable/header</item>
+        <item name="android:headerBackground">@drawable/header</item>
+        <item name="android:headerMonthTextAppearance">@style/CustomDatePickerTextAppearance</item>
+        <item name="android:headerDayOfMonthTextAppearance">@style/CustomDatePickerTextAppearance</item>
+        <item name="android:yearListItemTextAppearance">@style/CustomDatePickerTextAppearance</item>
+        <item name="android:yearListSelectorColor">@color/GreenYellow</item>
+    </style>
+
     <style name="CustomDatePickerTextAppearance" parent="@android:style/TextAppearance.Material.Subhead">
         <item name="android:textColor">@color/purple_200</item>
         <item name="android:textSize">16sp</item>

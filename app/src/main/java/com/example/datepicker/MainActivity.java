@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button applyBtn;
     DatePicker datePicker;
+    TimePicker timePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
         applyBtn = findViewById(R.id.button_zap);
         datePicker = findViewById(R.id.datePicker);
+        timePicker = findViewById(R.id.timePicker);
+        Calendar now = Calendar.getInstance();
+        timePicker.setHour(now.get(Calendar.HOUR_OF_DAY));
+        timePicker.setMinute(now.get(Calendar.MINUTE));
 
 
         datePick.setOnClickListener(new View.OnClickListener() {
@@ -79,17 +84,14 @@ public class MainActivity extends AppCompatActivity {
                 boolean is24HView = true;
                 int selectedHour = 10;
                 int selectedMinute = 20;
-
-                TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
+                timePicker.setVisibility(View.VISIBLE);
+                timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
                     @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                    public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
                         timeTxt.setText(hourOfDay + ":" + minute);
+                        timePicker.setVisibility(View.GONE);
                     }
-                };
-
-                TimePickerDialog timePickerDialog = new TimePickerDialog (MainActivity.this, timeSetListener, selectedHour,  selectedMinute, is24HView);
-
-                timePickerDialog.show();
+                });
             }
         });
 
